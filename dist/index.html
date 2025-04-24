@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h2 { margin-top: 30px; }
+        ul { padding-left: 20px; }
+      </style>
+</head>
+<body>
+    <h1>Student Register</h1>
+
+    <div id="class-section"></div>
+    <div id="grade-section"></div>
+  
+    <footer style="margin-top: 40px;">
+      <p><a href="" target="_blank">GitHub Repo</a></p>
+    </footer>
+  
+    <script>
+      const students = [
+        { name: "Alice", class: "JSS1", score: 85 },
+        { name: "Bob", class: "JSS2", score: 67 },
+        { name: "Charlie", class: "JSS1", score: 45 },
+        { name: "Daisy", class: "JSS3", score: 92 },
+        { name: "Ethan", class: "JSS2", score: 33 },
+        { name: "Fiona", class: "JSS3", score: 59 },
+        { name: "George", class: "JSS1", score: 74 }
+      ];
+  
+      function getGrade(score) {
+        if (score >= 70) return "A";
+        if (score >= 60) return "B";
+        if (score >= 50) return "C";
+        if (score >= 40) return "D";
+        return "F";
+      }
+  
+      const classData = {};
+      const gradeData = { A: [], B: [], C: [], D: [], F: [] };
+  
+      students.forEach(s => {
+        if (!classData[s.class]) classData[s.class] = [];
+        classData[s.class].push(`${s.name} (Score: ${s.score})`);
+        gradeData[getGrade(s.score)].push(`${s.name} (${s.class}, Score: ${s.score})`);
+      });
+  
+      const classSection = document.getElementById("class-section");
+      for (const cls in classData) {
+        classSection.innerHTML += `<h2>${cls}</h2><ul><li>${classData[cls].join('</li><li>')}</li></ul>`;
+      }
+  
+      const gradeSection = document.getElementById("grade-section");
+      for (const grade in gradeData) {
+        gradeSection.innerHTML += `<h2>Grade ${grade}</h2><ul><li>${gradeData[grade].join('</li><li>')}</li></ul>`;
+      }
+    </script>
+</body>
+</html>
