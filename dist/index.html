@@ -23,14 +23,14 @@
 
   <script>
     
-    const students = [
-      { name: "Alice", class: "JSS1", score: 85 },
-      { name: "Bob", class: "JSS2", score: 67 },
-      { name: "Charlie", class: "JSS1", score: 45 },
-      { name: "Daisy", class: "JSS3", score: 92 },
-      { name: "Ethan", class: "JSS2", score: 33 },
-      { name: "Fiona", class: "JSS3", score: 59 },
-      { name: "George", class: "JSS1", score: 74 }
+    let students = [
+      { name: "Jana", class: "JSS1", score: 85 },
+      { name: "Peace", class: "JSS2", score: 67 },
+      { name: "Nenrot", class: "JSS1", score: 45 },
+      { name: "Nenpez", class: "JSS3", score: 92 },
+      { name: "Panpan", class: "JSS2", score: 33 },
+      { name: "Jesse", class: "JSS3", score: 59 },
+      { name: "Nenchin", class: "JSS1", score: 74 }
     ];
 
     
@@ -43,8 +43,8 @@
     }
 
     
-    const classData = {}; 
-    const gradeData = { A: [], B: [], C: [], D: [], F: [] };
+    let classData = {}; 
+    let gradeData = { A: [], B: [], C: [], D: [], F: [] };
 
     
     students.forEach(s => {
@@ -58,16 +58,16 @@
     });
 
     
-    const classSection = document.getElementById("class-section");
+    let classSection = document.getElementById("class-section");
     
-    for (const cls in classData) {
+    for (let cls in classData) {
       classSection.innerHTML += `<h2>${cls}</h2><ul><li>${classData[cls].join('</li><li>')}</li></ul>`;
     }
 
     
-    const gradeSection = document.getElementById("grade-section");
+    let gradeSection = document.getElementById("grade-section");
     
-    for (const grade in gradeData) {
+    for (let grade in gradeData) {
       gradeSection.innerHTML += `<h2>Grade ${grade}</h2><ul><li>${gradeData[grade].join('</li><li>')}</li></ul>`;
     }
   </script>
